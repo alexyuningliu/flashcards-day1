@@ -12,6 +12,10 @@ app.controller('FlashCardController', function($scope) {
 	    ]
 	};
 
-	console.log($scope.flashCard);
+	$scope.answerQuestion = function (ans) {
+		// if(ans === "correct") { console.log(ans) };
+		console.log(ans.correct);
+	}
+
 
 });
