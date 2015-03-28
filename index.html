@@ -10,17 +10,19 @@
     </head>
     <body>
     	<div ng-app="FlashCards">
-    		<div class="flash-card" ng-controller="FlashCardController">
-    		    <h1>{{ flashCard.question }}</h1>
-    		    <ul class="flash-card-answers">
-    		        <li class="flash-card-answer" ng-repeat="answer in flashCard.answers" ng-click="answerQuestion(answer)">
-    		            {{ answer.text }}
-    		        </li>
-    		    </ul>
-    		    <h2 class="answer-feedback" ng-show="answered">
-    		        <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
-    		        <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
-    		    </h2>
+    		<div ng-controller="MainController">
+    			<div class="flash-card" ng-repeat="flashcard in flashCards">
+	    		    <h1>{{ flashcard.question }}</h1>
+	    		    <ul class="flash-card-answers">
+	    		        <li class="flash-card-answer" ng-repeat="answer in flashcard.answers" ng-click="answerQuestion(answer, flashcard)">
+	    		            {{ answer.text }}
+	    		        </li>
+	    		    </ul>
+	    		    <h2 class="answer-feedback" ng-show="flashcard.answered" ng-class="{ correct: flashcard.answeredCorrectly === true, incorrect: flashcard.answeredCorrectly === false }">
+	    		        <span ng-show="flashcard.answeredCorrectly">Yeah, you got it right!</span>
+	    		        <span ng-show="!flashcard.answeredCorrectly">Nope, you got it wrong.</span>
+	    		    </h2>
+	    		</div>
     		</div>
     	</div>
     </body>
