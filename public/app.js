@@ -12,10 +12,21 @@ app.controller('FlashCardController', function($scope) {
 	    ]
 	};
 
-	$scope.answerQuestion = function (ans) {
-		// if(ans === "correct") { console.log(ans) };
-		console.log(ans.correct);
+	$scope.answerQuestion = function (answer) {
+		$scope.answered=true;
+
+		if (answer.correct === true) {
+			$scope.answeredCorrectly=true;
+		} else {
+			$scope.answeredCorrectly=false;
+		}
+
+		// $scope.answeredCorrectly=false;
+
+		// console.log(answer.correct);
 	}
 
+	// $scope.answered=true;
+	// $scope.answeredCorrectly=true;
 
 });
