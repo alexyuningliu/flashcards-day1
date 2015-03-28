@@ -11,8 +11,8 @@
     <body>
     	<div ng-app="FlashCards">
     		<div ng-controller="MainController">
-    			<div class="flash-card" ng-repeat="flashcard in flashCards">
-	    		    <h1>{{ flashcard.question }}</h1>
+    			<div class="flash-card" ng-repeat="flashcard in flashCards | orderBy:'question'">
+	    		    <h1>{{ flashcard.question | uppercase }}</h1>
 	    		    <ul class="flash-card-answers">
 	    		        <li class="flash-card-answer" ng-repeat="answer in flashcard.answers" ng-click="answerQuestion(answer, flashcard)">
 	    		            {{ answer.text }}
